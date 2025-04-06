@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            padding: 10px;
+            font-size: 18px;
+            background: #f4f4f4;
+            margin: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="itemInput" placeholder="Enter item">
+    <button onclick="addItem()">Add Item</button>
+
+    <ul id="itemList"></ul>
+
+    <script>
+        function addItem() {
+            let input = document.getElementById("itemInput");
+            let itemText = input.value.trim();
+            
+            if (itemText === "") return; // Prevent empty items
+
+            let li = document.createElement("li");
+            li.innerHTML = `${itemText} <button class="remove-btn" onclick="removeItem(this)">Remove</button>`;
+
+            document.getElementById("itemList").appendChild(li);
+            input.value = ""; // Clear input field
+        }
+
+        function removeItem(button) {
+            button.parentElement.remove();
+        }
+    </script>
+<hr>
+<br>
+<a href="realtimecount.html">Next</a>
+
+</body>
+</html>

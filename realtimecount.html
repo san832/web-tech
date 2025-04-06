@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <textarea id="textArea" placeholder="Type something..." oninput="updateCount()"></textarea>
+    <p>Characters: <span id="charCount">0</span></p>
+
+    <script>
+        function updateCount() {
+            let textLength = document.getElementById("textArea").value.length;
+            document.getElementById("charCount").innerText = textLength;
+        }
+    </script>
+
+</body>
+</html>
